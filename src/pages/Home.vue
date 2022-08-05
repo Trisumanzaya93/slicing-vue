@@ -82,9 +82,15 @@
       <div class="w-[90%] px-[2%]">
         <p
           class="flex items-center text-[24px] font-semibold leading-9 text-[#1F2A36"
+        ></p>
+        <div
+          class="flex items-center text-[24px] font-semibold leading-9 text-[#1F2A36 w-[20%] justify-between"
         >
-          Alumni Fazztrack
-        </p>
+          <p>Alumni</p>
+          {{ " " }}
+          <img :src="love" width="25" height="25" />
+          <p>Fazztrack</p>
+        </div>
         <p class="text-[20px] leading-7 text-[#46505C]">
           Testimoni alumni Fazztrack tentang bootcamp dan penyaluran kerja yang
           sudah mereka ikuti.
@@ -143,19 +149,23 @@
       </div>
     </div>
   </div>
+  <Footer />
 </template>
 
 <script>
 import Navbar from "@/components/molecule/Navbar.vue";
+import Footer from "@/components/molecule/Footer.vue";
 import CardTestimoni from "@/components/molecule/CardTestimoni.vue";
 import CardPilihanBootcamp from "@/components/molecule/CardPilihanBootcamp.vue";
 import CardKeunggulan from "@/components/molecule/CardKeunggulan.vue";
 import data from "@/utils/data.js";
+import love from "@/assets/icons/love.svg";
 
 export default {
   name: "PageHome",
   components: {
     Navbar,
+    Footer,
     CardTestimoni,
     CardPilihanBootcamp,
     CardKeunggulan,
@@ -164,6 +174,7 @@ export default {
     testimoni: data.testimoni,
     pilihanBootcamp: data.pilihan,
     keunggulan: data.keunggulan,
+    love,
   }),
 };
 </script>
