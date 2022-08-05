@@ -46,7 +46,7 @@
         <p class="text-[14px]">No. Handphone</p>
         <input
           type="number"
-          name="phone"
+          name="handphone"
           placeholder="Masukan No. Handphone anda"
           class="w-full h-[42px] p-3 rounded-md border text-[14px]"
         />
