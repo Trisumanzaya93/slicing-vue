@@ -1,4 +1,3 @@
-import Home from "@/pages/Home.vue";
 import Home from "@/pages/Home.vue"
 import Login from "@/pages/Login.vue"
 import Detail from "@/pages/Detail.vue"
