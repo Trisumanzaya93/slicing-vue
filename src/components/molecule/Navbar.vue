@@ -179,11 +179,12 @@
         class="h-[46px] w-[87px] rounded-md mr-5 flex justify-center items-center hover:cursor-pointer font-bold border border-slate-300"
         >Masuk</routerLink
       >
-      <p
+      <routerLink
+        to="/register"
         class="h-[46px] w-[87px] bg-[#1A3D75] border-none rounded-md flex justify-center items-center text-white hover:cursor-pointer font-bold"
       >
         Daftar
-      </p>
+      </routerLink>
     </div>
   </nav>
 </template>
