@@ -19,7 +19,7 @@
           :src="arrowRigth"
           width="20"
           height="20"
-          class="ml-2 color-inherit"
+          class="ml-2 text-red-600"
         />
       </router-link>
     </div>

@@ -16,17 +16,24 @@
       <p class="text-sm text-[#46505C]">{{ data.description }}</p>
     </div>
 
-    <router-link
-      to="#"
-      class="flex items-center text-center text-[#EF6807] font-bold"
-      >{{ data.link }}
-    </router-link>
+    <div class="flex w-[60%] justify-evenly items-center">
+      <router-link
+        to="#"
+        class="flex items-center text-center text-[#EF6807] font-bold"
+        >{{ data.link }}
+      </router-link>
+      <img :src="arrowRigth" width="20" height="20" />
+    </div>
   </div>
 </template>
 
 <script>
+import arrowRigth from "@/assets/icons/arrowRigth.svg";
 export default {
   name: "ComponentCardPilihan",
   props: ["data"],
+  data: () => ({
+    arrowRigth,
+  }),
 };
 </script>
