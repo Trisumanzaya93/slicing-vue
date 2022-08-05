@@ -80,7 +80,7 @@
             class="mr-2"
             @change="handlerAggree"
           />
-          <label for="forgot" class="text-[16px]"
+          <label for="forgot" class="text-[16px] hover:cursor-pointer"
             >Saya menyetujui
             <span class="text-[#2557A7] font-bold"
               >Syarat dan Ketentuan</span
