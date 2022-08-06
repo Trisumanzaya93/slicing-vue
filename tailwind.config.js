@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      open: ["Open Sans"],
+      open: ["Open Sans, sans-serif"],
     },
   },
   plugins: [require("daisyui")],
