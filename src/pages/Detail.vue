@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Navbar/>
     <div class="w-full pt-14 pl-32">
       <div class="flex flex-row justify-between">
         <div class="">
@@ -57,7 +58,7 @@
         </div>
     </div>
     <CardWeek/>
-    <div class="w-full h-56 bg-orange-100 flex flex-col justify-center items-center mt-20">
+    <div class="w-full h-56 bg-red-50 flex flex-col justify-center items-center mt-20">
       <h3 class="text-2xl font-semibold mb-10">Tunggu Apa Lagi? Gabung Bersama Kami?</h3>
       <Button width="w-10" height="h-5" title="Daftar Sekarang" color="bg-orange-500" rounded="rounded-sm" border="border-none"/>
     </div>
@@ -69,12 +70,14 @@
 import Button from "@/components/atom/button.vue"
 import CardWeek from "@/components/molecule/CardWeek.vue"
 import Footer from "@/components/molecule/Footer.vue"
+import Navbar from "@/components/molecule/Navbar.vue"
 export default {
   name: "DetailPage",
   components:{
     Button,
     CardWeek,
-    Footer
+    Footer,
+    Navbar
   }
 };
 </script>
