@@ -40,7 +40,9 @@
             </a>
             <ul class="p-2 mt-3 bg-slate-50">
               <li><a>Fullstack Mobile</a></li>
-              <li><a>Fullstack Website</a></li>
+              <li>
+                <router-link to="/detail-fullstack-web">Fulstack Website</router-link>
+              </li>
               <li><a>Backend Javaspring</a></li>
               <li><a>Backend Golang</a></li>
               <li><a>Mini Bootcamp</a></li>
@@ -120,7 +122,9 @@
           </a>
           <ul class="p-2 mt-3 bg-slate-50">
             <li><a>Fullstack Mobile</a></li>
-            <li><a>Fullstack Website</a></li>
+            <li>
+                <router-link to="/detail-fullstack-web">Fulstack Website</router-link>
+              </li>
             <li><a>Backend Javaspring</a></li>
             <li><a>Backend Golang</a></li>
             <li><a>Mini Bootcamp</a></li>
