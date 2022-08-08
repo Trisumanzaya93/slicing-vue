@@ -1,6 +1,6 @@
 <template>
     <div class="h-96 px-28 pt-10">
-        <div class="grid grid-cols-5 border-b-2 pb-10">
+        <div class="sm:grid grid-cols-5 border-b-2 pb-10">
             <div>
                 <img src="@/assets/fazztrack.svg" class="w-28" alt="">
                 <h3 class="text-sm mt-10">Fazztrack adalah program pelatihan yang berkomitmen untuk mencetak developer yang profesional dan memberikan kesempatan untuk berkarir di perusahaan ternama.</h3>
