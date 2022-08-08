@@ -1,6 +1,6 @@
 <template>
-    <div class="h-96 px-28 pt-10">
-        <div class="sm:grid grid-cols-5 border-b-2 pb-10">
+    <div class=" px-10 pt-10 md:px-28">
+        <div class="invisible w-0 h-0  grid grid-cols-5  pb-10 md:visible md:w-full md:h-max ">
             <div>
                 <img src="@/assets/fazztrack.svg" class="w-28" alt="">
                 <h3 class="text-sm mt-10">Fazztrack adalah program pelatihan yang berkomitmen untuk mencetak developer yang profesional dan memberikan kesempatan untuk berkarir di perusahaan ternama.</h3>
@@ -42,10 +42,20 @@
                 </div>
             </div>
         </div>
-        <div class="flex justify-between">
+        <div class="flex justify-between border-t-2">
             <div class="flex">
                 <h3 class="text-sm font-bold">&copy; 2022 Fazztrack. </h3>
                 <h3 class="text-sm ">All Rights Reserved</h3>
+            </div>
+            <div class="flex ">
+                <div class="flex mr-5">
+                    <img src="@/assets/img2.png" class="w-4 h-4 mr-2" alt="">
+                <h3 class="text-sm ">081248886455</h3>
+                </div>
+                <div class="flex mr-5">
+                    <img src="@/assets/img3.svg" class="w-4 h-4 mr-2" alt="">
+                <h3 class="text-sm ">hello@faztrack.com</h3>
+                </div>
             </div>
         </div>
     </div>
