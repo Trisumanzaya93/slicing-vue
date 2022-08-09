@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="w-full px-5  lg:px-28 pt-12 bg-gray-200 pb-10">
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 gap-20 hover:gap-30">
+            <div class="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 lg:gap-10">
                 <CardVidio/>
                 <CardVidio/>
                 <CardVidio/>

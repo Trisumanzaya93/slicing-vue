@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar/>
-    <div class="w-full pt-14 pl-32">
+    <div class="w-full pt-14 pl-10 lg:pl-32">
       <div class="flex flex-col justify-center lg:flex-row lg:justify-between">
         <div class="">
           <h3 class="text-4xl font-semibold">Fullstack Mobile</h3>
@@ -60,7 +60,7 @@
     </div>
     <CardWeek/>
     <div class="w-full h-56 bg-red-50 flex flex-col justify-center items-center mt-20">
-      <h3 class="text-2xl font-semibold mb-10">Tunggu Apa Lagi? Gabung Bersama Kami?</h3>
+      <h3 class="text-2xl font-semibold mb-10 text-center">Tunggu Apa Lagi? Gabung Bersama Kami?</h3>
       <Button width="w-10" height="h-5" title="Daftar Sekarang" color="bg-orange-500" rounded="rounded-sm" border="border-none"/>
     </div>
     <Footer/>
