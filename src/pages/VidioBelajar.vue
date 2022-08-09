@@ -10,16 +10,10 @@
         </div>
         <div class="w-full px-5  lg:px-28 pt-12 bg-gray-200 pb-10">
             <div class="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 lg:gap-10">
-                <CardVidio/>
-                <CardVidio/>
-                <CardVidio/>
-                <CardVidio/>
-                <CardVidio/>
-                <CardVidio/>
-                <CardVidio/>
-                <CardVidio/>
+                <CardVidio v-for="(item,index) in videos.list" :key="index" :data="item" />
             </div>
         </div>
+        <h3>{{videos}}</h3>
         <Footer/>
     </div>
 </template>
@@ -28,12 +22,26 @@
 import Navbar from "@/components/molecule/Navbar.vue"
 import CardVidio from "@/components/molecule/CardVidio.vue"
 import Footer from "@/components/molecule/Footer.vue"
+import {mapActions,mapGetters} from "vuex"
 export default {
     name:"VidioBelajar",
     components:{
         Navbar,
         CardVidio,
         Footer
+    },
+    computed:{
+        ...mapGetters({
+            videos:"videoBelajar/videos"
+        })
+    },
+    methods:{
+        ...mapActions({
+            getVideos:"videoBelajar/getVideos"
+        })
+    },
+    mounted(){
+        this.getVideos()
     }
 }
 </script>
