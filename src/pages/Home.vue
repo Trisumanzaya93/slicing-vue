@@ -2,8 +2,10 @@
   <Navbar />
   <div class="font-open">
     <!-- CAROUSEL -->
-    <div class="flex items-center justify-center p-28">
-      <div class="w-[50%]">
+    <div
+      class="flex flex-col-reverse flex-wrap items-center justify-center gap-20 p-28 lg:flex-row lg:gap-0"
+    >
+      <div class="lg:w-[50%] w-full text-center lg:text-start">
         <p class="text-[48px] font-bold mb-3">Ubah Hidupmu Sekarang Juga</p>
         <p class="text-[20px] leading-7 mb-8">
           Belajar menjadi software engineer secara online/remote selama 3 - 6
@@ -15,7 +17,7 @@
         </button>
       </div>
 
-      <div class="w-[50%] flex justify-center items-center">
+      <div class="lg:w-[50%] flex justify-center items-center">
         <img
           src="@/assets/images/carosel/01-btpn.e89dd14.svg"
           alt="card"
