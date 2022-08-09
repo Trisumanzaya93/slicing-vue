@@ -4,6 +4,7 @@ import Register from "@/pages/Register.vue";
 import Detail from "@/pages/Detail.vue";
 import VidioBelajar from "@/pages/VidioBelajar.vue";
 import DetailVideoBelajar from "@/pages/DetailVideoBelajar.vue";
+import MiniBootcamp from "@/pages/MiniBootcamp.vue"
 
 export default [
   {
@@ -25,6 +26,10 @@ export default [
   {
     path: "/module-belajar",
     component: VidioBelajar,
+  },
+  {
+    path: "/mini-bootcamp",
+    component: MiniBootcamp,
   },
   {
     path: "/detail-video-belajar",
