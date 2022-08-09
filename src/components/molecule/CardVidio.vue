@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div class="card w-32 lg:w-64 bg-base-100 shadow-xl hover:w-72">
+    <div class="flex justify-center items-center">
+        <div class="card w-32 hover:scale-110  bg-base-100 shadow-xl lg:w-64">
   <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
   <div class="px-3 pt-3 lg:card-body">
     <h2 class="text-[8px] font-bold lg:card-title">
