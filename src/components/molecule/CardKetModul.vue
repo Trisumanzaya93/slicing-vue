@@ -1,4 +1,8 @@
+<!-- eslint-disable vue/no-use-v-if-with-v-for -->
+<!-- eslint-disable vue/require-v-for-key -->
+<!-- eslint-disable vue/no-unused-vars -->
 <template>
+  <!-- {{ data }} -->
   <div class="font-open lg:w-[320px] w-full h-[500px] border p-5">
     <p class="text-xl text-[#1F2A36] font-semibold leading-7 pb-3">
       Keterangan Modul
@@ -16,7 +20,9 @@
         />
         <p class="text-sm font-open text-[#8D959E]">Jumlah Video</p>
       </div>
-      <p class="text-sm font-open font-semibold text-[#46505C]">1 video</p>
+      <p class="text-sm font-open font-semibold text-[#46505C]">
+        {{ data.videoCount }} video
+      </p>
     </div>
 
     <div class="flex items-center justify-between w-full py-3">
@@ -30,7 +36,9 @@
         />
         <p class="text-sm font-open text-[#8D959E]">Durasi Video</p>
       </div>
-      <p class="text-sm font-open font-semibold text-[#46505C]">02:22:01</p>
+      <p class="text-sm font-open font-semibold text-[#46505C]">
+        {{ data.duration }}
+      </p>
     </div>
 
     <div class="flex items-center justify-between w-full py-3">
@@ -44,7 +52,9 @@
         />
         <p class="text-sm font-open text-[#8D959E]">Pemateri</p>
       </div>
-      <p class="text-sm font-open font-semibold text-[#46505C]">Fazztrack</p>
+      <p class="text-sm font-open font-semibold text-[#46505C]">
+        {{ data.trainer }}
+      </p>
     </div>
 
     <div class="flex items-center justify-between w-full py-3">
@@ -58,7 +68,9 @@
         />
         <p class="text-sm font-open text-[#8D959E]">Level</p>
       </div>
-      <p class="text-sm font-open font-semibold text-[#46505C]">Basic</p>
+      <p class="text-sm font-open font-semibold text-[#46505C]">
+        {{ data.level }}
+      </p>
     </div>
 
     <div class="flex items-center justify-between w-full py-3">
@@ -73,17 +85,20 @@
         <p class="text-sm font-open text-[#8D959E]">Rating</p>
       </div>
       <div class="flex items-center justify-center">
-        <img :src="ratingSolidIcon" alt="icon" height="20" width="20" />
-        <img :src="ratingSolidIcon" alt="icon" height="20" width="20" />
-        <img :src="ratingSolidIcon" alt="icon" height="20" width="20" />
-        <img :src="ratingSolidIcon" alt="icon" height="20" width="20" />
-        <img :src="ratingSolidIcon" alt="icon" height="20" width="20" />
+        <img
+          :src="ratingSolidIcon"
+          alt="icon"
+          height="20"
+          width="20"
+          v-for="n in data.star"
+          :key="n"
+        />
       </div>
     </div>
     <hr class="mb-5" />
     <div class="flex items-center justify-between w-full">
       <p class="text-sm font-open text-[#8D959E]">Harga</p>
-      <p class="text-sm font-open font-bold text-[#EF6807]">Gratis</p>
+      <p class="text-sm font-open font-bold text-[#EF6807]">{{ data.price }}</p>
     </div>
     <routerLink to="/login" class="btn btn-outline w-full h-[46px] my-5"
       >Masuk</routerLink
@@ -104,9 +119,13 @@ import userIcon from "@/assets/icons/user.svg";
 import academicIcon from "@/assets/icons/academic.svg";
 import ratingOutlineIcon from "@/assets/icons/ratingOutline.svg";
 import ratingSolidIcon from "@/assets/icons/ratingSolid.svg";
+import ratingNullIcon from "@/assets/icons/ratingNull.svg";
 
 export default {
   name: "ComponentCardKetModul",
+  props: {
+    data: Object,
+  },
   data: () => ({
     videoIcon,
     watchIcon,
@@ -114,6 +133,8 @@ export default {
     academicIcon,
     ratingOutlineIcon,
     ratingSolidIcon,
+    ratingNullIcon,
+    rating: 5,
   }),
 };
 </script>

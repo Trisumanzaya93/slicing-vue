@@ -1,9 +1,11 @@
 <template>
-  <div class="flex items-center justify-center">
+  <routerLink
+    :to="`/video-belajar/${data.id}`"
+    class="flex items-center justify-center"
+  >
     <div class="w-32 shadow-xl card hover:scale-110 bg-base-100 lg:w-64">
       <figure><img :src="data.banner" alt="img" /></figure>
       <div class="px-3 pt-3 lg:card-body">
-        {{ data.id }}
         <h2 class="text-[8px] font-bold lg:card-title">
           {{ data.title }}
         </h2>
@@ -32,7 +34,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </routerLink>
 </template>
 
 <script>

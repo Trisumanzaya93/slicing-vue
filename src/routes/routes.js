@@ -32,7 +32,7 @@ export default [
     component: MiniBootcamp,
   },
   {
-    path: "/detail-video-belajar",
+    path: "/video-belajar/:id",
     component: DetailVideoBelajar,
   },
 ];

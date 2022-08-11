@@ -1,5 +1,8 @@
 <template>
   <Navbar />
+  <!-- {{ detailVideo.detailVideo.comments }} -->
+  <p class="hidden">{{ getStar() }}</p>
+  <!-- {{ getStar(detailVideo.detailVideo.comments) }} -->
 
   <!-- row 1 -->
   <div class="w-[100%] h-[72vh] relative font-open">
@@ -14,7 +17,9 @@
       >
         Kembali
       </button>
+      <!-- bg-[image:var(--image-url)] -->
       <a
+        :style="`--image-url:${detailVideo.detailVideo.banner}`"
         class="w-[100%] h-[90%] bg-banner-class bg-center bg-no-repeat bg-cover rounded-lg cursor-pointer overflow-hidden"
         href="#my-modal-2"
       >
@@ -40,7 +45,7 @@
           NodeJS - Building Backend with NodeJS for Beginner
         </p>
         <p class="text-2xl text-[#1F2A36] leading-9 font-semibold my-2">
-          Building Backend with NodeJS for Beginner
+          {{ detailVideo.detailVideo.title }}
         </p>
         <p class="py-2 text-sm leading-5">Course Basic</p>
         <p class="py-2 text-sm leading-5">
@@ -56,7 +61,7 @@
         </p>
       </div>
       <div class="w-full pt-10 lg:w-auto">
-        <CardModule />
+        <CardModule :data="detailVideo.detailVideo" />
       </div>
     </div>
   </div>
@@ -127,7 +132,7 @@
               <img :src="RatingSolidIcon" alt="icon" height="20" width="20" />
               <img :src="RatingSolidIcon" alt="icon" height="20" width="20" />
             </div>
-            <p>32</p>
+            <p>{{ rating.rating5 }}</p>
           </div>
 
           <div class="flex items-center justify-between p-6 border">
@@ -138,7 +143,7 @@
               <img :src="RatingSolidIcon" alt="icon" height="20" width="20" />
               <img :src="RatingNullIcon" alt="icon" height="20" width="20" />
             </div>
-            <p>4</p>
+            <p>{{ rating.rating4 }}</p>
           </div>
 
           <div class="flex items-center justify-between p-6 border">
@@ -149,7 +154,7 @@
               <img :src="RatingNullIcon" alt="icon" height="20" width="20" />
               <img :src="RatingNullIcon" alt="icon" height="20" width="20" />
             </div>
-            <p>0</p>
+            <p>{{ rating.rating3 }}</p>
           </div>
 
           <div class="flex items-center justify-between p-6 border">
@@ -160,7 +165,7 @@
               <img :src="RatingNullIcon" alt="icon" height="20" width="20" />
               <img :src="RatingNullIcon" alt="icon" height="20" width="20" />
             </div>
-            <p>0</p>
+            <p>{{ rating.rating2 }}</p>
           </div>
 
           <div class="flex items-center justify-between p-6 border">
@@ -171,11 +176,15 @@
               <img :src="RatingNullIcon" alt="icon" height="20" width="20" />
               <img :src="RatingNullIcon" alt="icon" height="20" width="20" />
             </div>
-            <p>0</p>
+            <p>{{ rating.rating1 }}</p>
           </div>
         </div>
         <div class="lg:w-[70%] w-full h-auto lg:pl-10">
-          <CardReview />
+          <CardReview
+            :data="item"
+            v-for="(item, idx) in detailVideo.detailVideo.comments"
+            :key="idx"
+          />
         </div>
       </div>
     </div>
@@ -212,6 +221,7 @@ import CardModule from "@/components/molecule/CardKetModul.vue";
 import CardReview from "@/components/molecule/CardReview.vue";
 import RatingNullIcon from "@/assets/icons/ratingNull.svg";
 import RatingSolidIcon from "@/assets/icons/ratingSolid.svg";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "DetailVideoBelajar",
@@ -229,22 +239,62 @@ export default {
     },
     RatingNullIcon,
     RatingSolidIcon,
+    rating: {},
   }),
-  created() {
-    window.addEventListener("resize", this.handleResize);
-    this.handleResize();
-  },
-  unmounted() {
-    window.removeEventListener("resize", this.handleResize);
-  },
   methods: {
+    ...mapActions({
+      getDetailVideo: "detailVideoBelajar/getDetailVideo",
+    }),
     goBack() {
-      return this.$router.push("/module-belajar");
+      return this.$router.push("/video-belajar");
     },
     handleResize() {
       this.window.width = window.innerWidth;
       this.window.height = window.innerHeight;
     },
+    getStar() {
+      const { comments } = this.detailVideo.detailVideo;
+      const checkRating5 =
+        comments !== undefined &&
+        comments.map((item) => item.star).filter((item) => item === 5);
+      const checkRating4 =
+        comments !== undefined &&
+        comments.map((item) => item.star).filter((item) => item === 4);
+      const checkRating3 =
+        comments !== undefined &&
+        comments.map((item) => item.star).filter((item) => item === 3);
+      const checkRating2 =
+        comments !== undefined &&
+        comments.map((item) => item.star).filter((item) => item === 2);
+      const checkRating1 =
+        comments !== undefined &&
+        comments.map((item) => item.star).filter((item) => item === 1);
+
+      const rating = {
+        rating5: checkRating5.length,
+        rating4: checkRating4.length,
+        rating3: checkRating3.length,
+        rating2: checkRating2.length,
+        rating1: checkRating1.length,
+      };
+      return (this.rating = rating);
+    },
+  },
+  computed: {
+    ...mapGetters({
+      detailVideo: "detailVideoBelajar/detailVideo",
+    }),
+  },
+  created() {
+    window.addEventListener("resize", this.handleResize);
+    this.handleResize();
+  },
+  mounted() {
+    const { id } = this.$route.params;
+    this.getDetailVideo(id);
+  },
+  unmounted() {
+    window.removeEventListener("resize", this.handleResize);
   },
 };
 </script>

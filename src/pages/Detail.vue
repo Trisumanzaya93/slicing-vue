@@ -131,17 +131,14 @@
 </template>
 
 <script>
-// import CardWeek from "@/components/molecule/CardWeek.vue";
 import Footer from "@/components/molecule/Footer.vue";
 import Navbar from "@/components/molecule/Navbar.vue";
 import Loading from "@/components/atom/loading.vue";
-
 import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "DetailPage",
   components: {
-    // CardWeek,
     Footer,
     Navbar,
     Loading,
