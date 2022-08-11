@@ -39,15 +39,16 @@
               </svg>
             </a>
             <ul class="p-2 mt-3 bg-slate-50">
-              <li><a>Fullstack Mobile</a></li>
-              <li>
-                <router-link to="/detail-fullstack-web">Fulstack Website</router-link>
+              <li v-for="(item, idx) in kelas.data" :key="idx">
+                <router-link :to="`/kelas/${item.id}`">
+                  {{ item.title }}
+                </router-link>
               </li>
-              <li><a>Backend Javaspring</a></li>
-              <li><a>Backend Golang</a></li>
-              <li><a>Mini Bootcamp</a></li>
               <li>
-                <router-link to="/module-belajar">Video Belajar</router-link>
+                <router-link to="/mini-bootcamp">Mini Bootcamps</router-link>
+              </li>
+              <li>
+                <router-link to="/video-belajar">Video Belajar</router-link>
               </li>
             </ul>
           </li>
@@ -121,15 +122,16 @@
             </svg>
           </a>
           <ul class="p-2 mt-3 bg-slate-50">
-            <li><a>Fullstack Mobile</a></li>
+            <li v-for="(item, idx) in kelas.data" :key="idx">
+              <router-link :to="`/kelas/${item.id}`">
+                {{ item.title }}
+              </router-link>
+            </li>
             <li>
-                <router-link to="/detail-fullstack-web">Fulstack Website</router-link>
-              </li>
-            <li><a>Backend Javaspring</a></li>
-            <li><a>Backend Golang</a></li>
-            <li><a>Mini Bootcamp</a></li>
+              <router-link to="/mini-bootcamp">Mini Bootcamp</router-link>
+            </li>
             <li>
-              <router-link to="/module-belajar">Video Belajar</router-link>
+              <router-link to="/video-belajar">Video Belajar</router-link>
             </li>
           </ul>
         </li>
@@ -194,7 +196,22 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "ComponentNavbar",
+  computed: {
+    ...mapGetters({
+      kelas: "kelas/dataKelas",
+    }),
+  },
+  methods: {
+    ...mapActions({
+      getData: "kelas/getData",
+    }),
+  },
+  mounted() {
+    this.getData();
+  },
 };
 </script>
