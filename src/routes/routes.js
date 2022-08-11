@@ -4,7 +4,7 @@ import Register from "@/pages/Register.vue";
 import Detail from "@/pages/Detail.vue";
 import VidioBelajar from "@/pages/VidioBelajar.vue";
 import DetailVideoBelajar from "@/pages/DetailVideoBelajar.vue";
-import MiniBootcamp from "@/pages/MiniBootcamp.vue"
+import MiniBootcamp from "@/pages/MiniBootcamp.vue";
 
 export default [
   {
@@ -20,11 +20,11 @@ export default [
     component: Register,
   },
   {
-    path: "/detail-fullstack-web",
+    path: "/kelas/:id",
     component: Detail,
   },
   {
-    path: "/module-belajar",
+    path: "/video-belajar",
     component: VidioBelajar,
   },
   {
