@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white w-full px-3 rounded-sm">
+    <div class="bg-white w-full px-5 rounded-sm">
         <div class="flex justify-between  mt-5">
             <h3 class="lg:text-lg font-bold text-blue-900">{{data.type}}</h3>
             <h3 class="lg:text-lg font-bold text-orange-600" v-if="data.hiring">Disalurkan Kerja</h3>
