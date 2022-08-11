@@ -5,7 +5,7 @@
             <h3 class="text-xs lg:text-2xl font-medium">Belajar bersama expert dan creator terpercaya</h3>
         </div>
         <div class="w-full px-5  lg:px-28 pt-12 bg-gray-200 pb-10">
-            <div class="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-3 lg:gap-10">
+            <div class="grid grid-cols-1 gap-5  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 lg:gap-10">
                 <CardMiniBootcamp v-for="(item,index) in data.list" :key="index" :data="item"/>
             </div>
         </div>

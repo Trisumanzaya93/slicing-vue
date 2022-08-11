@@ -61,17 +61,24 @@
       </div>
     </div>
 <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-<div class="modal modal-bottom sm:modal-middle">
-  <div class="modal-box" v-if="user.email">
+<div class="modal w-full h-full sm:modal-bottom, sm:modal-midle">
+  <div class="w-full mx-10 bg-white px-10 pb-10 rounded-2xl pt-10 sm:modal-box " v-if="user.email">
     <h3 class="font-bold text-lg">User berhasil login!</h3>
     <p class="py-4">{{user.email}}</p>
+    <div class="w-full flex justify-center my-10">
     <img :src="user.profilePicture" class=" h-52" alt="">
+    </div>
     <div class="modal-action">
       <label for="my-modal-6" class="btn bg-orange-500">kembali</label>
     </div>
   </div>
-  <div class="modal-box" v-else>
-    <h3 class="font-bold text-lg">{{message}}</h3>
+  <div class="w-full mx-10 bg-white px-10 pb-10 rounded-2xl  sm:modal-box " v-else>
+    <div class="flex flex-col items-center my-10">
+      <div class="w-24 h-24 rounded-full border-8 border-red-600 flex justify-center items-center mb-10">
+        <h3 class="text-6xl font-bold text-red-600">X</h3>
+      </div>
+    <h3 class="text-sm font-bold sm:text-lg">{{message}}</h3>
+    </div>
     <div class="modal-action">
       <label for="my-modal-6" class="btn bg-orange-500">kembali</label>
     </div>
@@ -102,6 +109,14 @@ export default {
     }),
     async handleLogin(){
       try {
+        if(this.form.email===""){
+          document.getElementById('my-modal-6').checked = true;
+          return this.message = "email belum terisi"
+        }
+        if(this.form.password===""){
+          document.getElementById('my-modal-6').checked = true;
+          return this.message = "password belum terisi"
+        }
         const result = await this.login(this.form)
         this.user=result
         console.log(this.user);

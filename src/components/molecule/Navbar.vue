@@ -45,7 +45,9 @@
               </li>
               <li><a>Backend Javaspring</a></li>
               <li><a>Backend Golang</a></li>
-              <li><a>Mini Bootcamp</a></li>
+              <li>
+                <router-link to="/mini-bootcamp">Mini Bootcamp</router-link>
+              </li>
               <li>
                 <router-link to="/module-belajar">Video Belajar</router-link>
               </li>
@@ -127,7 +129,9 @@
               </li>
             <li><a>Backend Javaspring</a></li>
             <li><a>Backend Golang</a></li>
-            <li><a>Mini Bootcamp</a></li>
+            <li>
+                <router-link to="/mini-bootcamp">Mini Bootcamp</router-link>
+              </li>
             <li>
               <router-link to="/module-belajar">Video Belajar</router-link>
             </li>
