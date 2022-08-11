@@ -33,7 +33,10 @@
         </svg>
       </form>
     </div>
-    <div class="w-full px-5 pt-12 pb-10 bg-gray-200 lg:px-28">
+    <div v-if="videos.isLoading">
+            <Loading />
+        </div>
+    <div v-else class="w-full px-5 pt-12 pb-10 bg-gray-200 lg:px-28">
       <div
         class="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 lg:gap-10"
       >
@@ -52,6 +55,7 @@
 import Navbar from "@/components/molecule/Navbar.vue";
 import CardVidio from "@/components/molecule/CardVidio.vue";
 import Footer from "@/components/molecule/Footer.vue";
+import Loading from "@/components/atom/loading.vue"
 import { mapActions, mapGetters } from "vuex";
 export default {
   name: "VidioBelajar",
@@ -59,6 +63,7 @@ export default {
     Navbar,
     CardVidio,
     Footer,
+    Loading
   },
   data() {
     return {
