@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-[352px] h-[372px] flex flex-col justify-between items-center border font-open rounded-lg bg-white hover:shadow-md transform transition duration-500 hover:scale-105 p-5 text-black"
+    class="w-[352px] h-[372px] flex flex-col justify-between items-center border font-open rounded-lg bg-white hover:shadow-md transform transition duration-500 hover:scale-105 py-5 text-black"
   >
     <img
       :src="require(`@/assets/images/keunggulan-botcamp/${data.icon}`)"

@@ -1,84 +1,175 @@
 <template>
-  <div>
-    <Navbar/>
-    <div class="w-full pt-14 pl-32">
-      <div class="flex flex-col justify-center lg:flex-row lg:justify-between">
-        <div class="">
-          <h3 class="text-4xl font-semibold">Fullstack Mobile</h3>
-          <div class="flex mt-10">
-            <div>
-              <li class="text-orange-400">
-                <span class="text-black text-2xl">Algoritma</span>
-              </li>
-              <li class="text-orange-400 mt-5">
-                <span class="text-black text-2xl">JavaScript</span>
-              </li>
-              <li class="text-orange-400 mt-5">
-                <span class="text-black text-2xl">Express</span>
-              </li>
-              <li class="text-orange-400 mt-5">
-                <span class="text-black text-2xl">Redux</span>
-              </li>
-              <li class="text-orange-400 mt-5">
-                <span class="text-black text-2xl">SCRUM (Kanban)</span>
-              </li>
-              <div class="mt-10">
-          <Button width="w-10" height="h-5" title="Daftar Sekarang" color="bg-orange-500" rounded="rounded-sm" border="border-none"/>
-          </div>
-            </div>
-            <div class="ml-10">
-              <li class="text-orange-400">
-                <span class="text-black text-2xl">Algoritma</span>
-              </li>
-              <li class="text-orange-400 mt-5">
-                <span class="text-black text-2xl">JavaScript</span>
-              </li>
-              <li class="text-orange-400 mt-5">
-                <span class="text-black text-2xl">Express</span>
-              </li>
-              <li class="text-orange-400 mt-5">
-                <span class="text-black text-2xl">Redux</span>
-              </li>
-              <li class="text-orange-400 mt-5 ">
-                <span class="text-black text-2xl">SCRUM (Kanban)</span>
-              </li>
-            </div>
-          </div>
-          
+  <Navbar />
+  <!-- {{ kelas.detailKelas }} -->
+
+  <div v-if="kelas.isLoading">
+    <Loading />
+  </div>
+  <div v-else class="container mx-auto text-open lg:px-20">
+    <div class="w-full lg:py-10">
+      <div class="flex flex-col-reverse lg:flex-row">
+        <div class="w-full py-16 lg:w-[60%]">
+          <p
+            class="text-[#46505C] text-5xl text-center lg:text-start font-semibold"
+          >
+            {{ kelas.detailKelas.title }}
+          </p>
+
+          <ul class="grid grid-cols-2 gap-5 pl-5 my-10 list-disc list-inside">
+            <li
+              v-for="(item, idx) in kelas.detailKelas.syllabus"
+              :key="idx"
+              class="text-[#EF6807] w-full text-xl"
+            >
+              <p class="text-[#46505C] inline text-base lg:text-xl">
+                {{ item }}
+              </p>
+            </li>
+          </ul>
+
+          <routerLink
+            to="/register"
+            class="flex justify-center items-center bg-[#EF6807] hover:bg-[#ca5400] hover:shadow-md text-white w-[155px] h-[46px] rounded-md ml-5 lg:ml-0"
+          >
+            Daftar Sekarang
+          </routerLink>
         </div>
-        <div class=" flex justify-center pt-10 lg:pt-0 md:mr-60 md:pb-24">
-          <img src="@/assets/talent.svg" alt="Shoes" class="w-80 h-80" />
+
+        <div class="flex items-center justify-center w-full p-20 lg:w-[40%]">
+          <img
+            src="@/assets/images/carosel/01-btpn.e89dd14.svg"
+            alt="card"
+            width="266"
+            height="368"
+          />
         </div>
       </div>
     </div>
-    <div class="w-full pt-14 pl-10 pr-10 flex flex-col lg:pl-32 lg:flex-row lg:pr-0 ">
-        <img src="@/assets/img1.png" alt="">
-        <div class="mt-10 lg:ml-20 lg:mt-0">
-        <h3 class="text-2xl font-semibold">Lebih dari sekedar bootcamp</h3>
-        <h3 class="text-xl mt-5">Di bootcamp Fazztrack, kamu akan belajar bersama dengan teman teman yang passionate dan mentor yang akan membimbing kamu ke tujuan kamu. Kamu juga bisa membangun networking yang baik untuk masa depanmu dari teman setim dan mentor kami yang berasal dari industri.</h3>
+
+    <div class="w-full gap-20 lg:flex">
+      <div
+        class="w-fulllg:w-[40%] flex justify-center items-center mb-16 lg:mb-0"
+      >
+        <img src="@/assets/img1.png" alt="img" width="360" height="192" />
+      </div>
+
+      <div class="w-full lg:w-[60%] text-center lg:text-start p-5 lg:p-0">
+        <p class="text-[#1F2A36] text-2xl font-semibold mb-10">
+          Lebih dari sekedar bootcamp
+        </p>
+        <p class="text-[#1F2A36] text-xl">
+          Di bootcamp Fazztrack, kamu akan belajar bersama dengan teman teman
+          yang passionate dan mentor yang akan membimbing kamu ke tujuan kamu.
+          Kamu juga bisa membangun networking yang baik untuk masa depanmu dari
+          teman setim dan mentor kami yang berasal dari industri.
+        </p>
+      </div>
+    </div>
+
+    <div class="w-full gap-20 my-20 text-center lg:flex-col">
+      <p class="text-[#1F2A36] text-2xl font-semibold mb-5">
+        Timeline Pembelajaran
+      </p>
+      <p class="text-[#1F2A36] text-xl mb-20">
+        Kamu akan mempelajari materi sesuai kurikulum dengan timeline sebagai
+        berikut :
+      </p>
+      <div
+        class="block mb-10 md:flex text-start"
+        v-for="(item, idx) in kelas.detailKelas.timeline"
+        :key="idx"
+      >
+        <div class="w-full lg:w-[30%] flex justify-center">
+          <p class="text-[#EF6807] text-xl font-semibold">{{ item.week }}</p>
         </div>
+        <div class="w-full lg:w-[70%] mt-5 p-5 lg:mt-0 lg:p-0">
+          <p class="text-[#1F2A36] text-xl font-semibold mb-5 lg:mb-3">
+            {{ item.title }}
+          </p>
+          <p class="text-[#46505C] text-sm">
+            {{ item.description }}
+          </p>
+        </div>
+      </div>
     </div>
-    <CardWeek/>
-    <div class="w-full h-56 bg-red-50 flex flex-col justify-center items-center mt-20">
-      <h3 class="text-2xl font-semibold mb-10">Tunggu Apa Lagi? Gabung Bersama Kami?</h3>
-      <Button width="w-10" height="h-5" title="Daftar Sekarang" color="bg-orange-500" rounded="rounded-sm" border="border-none"/>
+
+    <div class="w-full text-center">
+      <p class="text-[#1F2A36] text-2xl font-semibold mb-5">
+        Penjadwalan Dalam Kelas
+      </p>
+      <p class="text-[#46505C] text-xl">
+        Berikut jadwal kamu selama mengikuti bootcamp di Fazztrack :
+      </p>
+
+      <div class="w-full p-5 my-10">
+        <img
+          src="@/assets/images/jadwal.svg"
+          alt="img"
+          height="385"
+          class="object-cover object-center"
+        />
+      </div>
     </div>
-    <Footer/>
   </div>
+
+  <div
+    class="w-full bg-[#FFF3E4] flex justify-center items-center flex-col h-[218px]"
+  >
+    <p
+      class="text-[#1F2A36] font-semibold text-2xl mb-10 text-center p-5 lg:p-0"
+    >
+      Tunggu Apa Lagi ? gabung Bersama Kami ?
+    </p>
+    <routerLink
+      to="/register"
+      class="flex justify-center items-center bg-[#EF6807] hover:bg-[#ca5400] hover:shadow-md text-white w-[155px] h-[46px] rounded-md"
+    >
+      Daftar Sekarang
+    </routerLink>
+  </div>
+  <Footer />
 </template>
 
 <script>
-import Button from "@/components/atom/button.vue"
-import CardWeek from "@/components/molecule/CardWeek.vue"
-import Footer from "@/components/molecule/Footer.vue"
-import Navbar from "@/components/molecule/Navbar.vue"
+import Footer from "@/components/molecule/Footer.vue";
+import Navbar from "@/components/molecule/Navbar.vue";
+import Loading from "@/components/atom/loading.vue";
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "DetailPage",
-  components:{
-    Button,
-    CardWeek,
+  components: {
     Footer,
-    Navbar
-  }
+    Navbar,
+    Loading,
+  },
+  data: function () {
+    return {
+      idKelas: this.$route.params.id,
+    };
+  },
+  computed: {
+    ...mapGetters({
+      kelas: "kelas/detailKelas",
+    }),
+  },
+  methods: {
+    ...mapActions({
+      getDetail: "kelas/getDetail",
+      updateDetail: "kelas/updateDetail",
+    }),
+  },
+  mounted() {
+    const { id } = this.$route.params;
+    this.getDetail(id);
+  },
+  updated() {
+    this.idKelas = this.$route.params.id;
+  },
+  watch: {
+    idKelas(newValue) {
+      this.updateDetail(newValue);
+    },
+  },
 };
 </script>

@@ -1,10 +1,14 @@
 <template>
   <Navbar />
-  <div class="font-open">
+  <section class="font-open">
     <!-- CAROUSEL -->
-    <div class="flex items-center justify-center p-28">
-      <div class="w-[50%]">
-        <p class="text-[48px] font-bold mb-3">Ubah Hidupmu Sekarang Juga</p>
+    <div
+      class="flex flex-col-reverse flex-wrap items-center justify-center px-5 pt-10 mb-10 lg:px-40 gap-14 lg:flex-row lg:gap-0"
+    >
+      <div class="lg:w-[60%] w-full text-center lg:text-start">
+        <p class="md:text-[48px] text-[25px] font-bold mb-3">
+          Ubah Hidupmu Sekarang Juga
+        </p>
         <p class="text-[20px] leading-7 mb-8">
           Belajar menjadi software engineer secara online/remote selama 3 - 6
           bulan sampai diterima kerja, tanpa bayar di depan (Cicil Setelah
@@ -15,7 +19,7 @@
         </button>
       </div>
 
-      <div class="w-[50%] flex justify-center items-center">
+      <div class="lg:w-[40%] flex justify-end items-center">
         <img
           src="@/assets/images/carosel/01-btpn.e89dd14.svg"
           alt="card"
@@ -26,15 +30,17 @@
     </div>
 
     <!-- REKANAN PERUSAHAAN -->
-    <div class="bg-[#F3F4F5] flex flex-col justify-center items-center p-10">
-      <p class="text-[24px] leading-9 font-semibold mb-2">
+    <div
+      class="bg-[#F3F4F5] flex flex-col justify-center items-center p-10 w-full"
+    >
+      <p class="text-[24px] leading-9 font-semibold mb-5 text-center">
         500 lebih lulusan sudah dipercaya di lebih dari 500 perusahaan
       </p>
-      <p class="text-[20px] leading-7 mb-10">
+      <p class="text-[20px] leading-7 mb-10 text-center">
         Fazztrack menjamin lulusan mendapat kesempatan membagun karir di
         perusahaan impian.
       </p>
-      <div class="w-[90%] flex flex-wrap gap-5">
+      <div class="w-[90%] flex flex-wrap gap-5 justify-center">
         <img
           src="@/assets/images/perusahaan/tokopedia.e6def53.svg"
           alt="icon"
@@ -79,15 +85,13 @@
 
     <!-- TESTIMONI ALUMNI -->
     <div class="flex items-center justify-center w-full p-10">
-      <div class="w-[90%] px-[2%]">
-        <p
-          class="flex items-center text-[24px] font-semibold leading-9 text-[#1F2A36"
-        ></p>
+      <div
+        class="w-[90%] text-center flex justify-center items-center flex-col"
+      >
         <div
-          class="flex items-center text-[24px] font-semibold leading-9 text-[#1F2A36 w-[20%] justify-between"
+          class="flex items-center text-[24px] font-semibold leading-9 text-[#1F2A36 lg:w-[20%] justify-between mb-3"
         >
           <p>Alumni</p>
-          {{ " " }}
           <img :src="love" width="25" height="25" />
           <p>Fazztrack</p>
         </div>
@@ -97,22 +101,19 @@
         </p>
       </div>
     </div>
-    <div class="flex items-center justify-center w-full mb-10">
-      <div class="flex w-[90%] justify-center items-center flex-wrap gap-5">
-        <CardTestimoni
-          :data="item"
-          v-for="(item, idx) in testimoni"
-          :key="idx"
-        />
-      </div>
+
+    <div
+      class="flex flex-wrap items-center justify-center w-full gap-5 p-5 lg:p-0 lg:mb-10"
+    >
+      <CardTestimoni :data="item" v-for="(item, idx) in testimoni" :key="idx" />
     </div>
 
     <!-- PILIHAN BOOTCAMP -->
-    <div class="flex flex-col items-center justify-center">
+    <div class="flex flex-col items-center justify-center px-5">
       <p class="text-[24px] leading-9 font-semibold text-[#1F2A36] mb-3">
         Pilihan Bootcamp Fazztrack
       </p>
-      <p class="text-[20px] leading-7">
+      <p class="text-[20px] leading-7 text-center">
         Bootcamp dilaksanakan berdasarkan kurikulum yang telah disusun untuk
         kamu siap bekerja.
       </p>
@@ -148,7 +149,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
   <Footer />
 </template>
 

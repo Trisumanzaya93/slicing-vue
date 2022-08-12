@@ -1,13 +1,13 @@
 <template>
   <div
-    class="w-[539px] h-[220px] flex border font-open rounded-md hover:shadow-md transform transition duration-500 hover:scale-105"
+    class="w-[539px] h-auto flex flex-wrap border font-open rounded-md hover:shadow-md transform transition duration-500 hover:scale-105 lg:justify-between"
   >
     <img
       :src="require(`@/assets/images/pilihan_botcamp/${data.foto}`)"
       alt="foro bootcamp"
-      class="w-[150] h-full"
+      class="object-cover object-center lg:w-[40%] w-full p-5 md:p-0"
     />
-    <div class="flex flex-col justify-around p-5">
+    <div class="flex flex-col justify-around p-5 w-full lg:w-[60%]">
       <p class="text-[24px] font-semibold leading-9 text-[#1F2A36]">
         {{ data.name }}
       </p>

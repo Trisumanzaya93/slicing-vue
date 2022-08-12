@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[542px] h-[326px] border p-3 font-open rounded-md">
+  <div class="w-[542px] h-max border p-10 font-open rounded-md">
     <p>
       {{ data.quotes }}
     </p>
