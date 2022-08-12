@@ -5,6 +5,7 @@ import Detail from "@/pages/Detail.vue";
 import VidioBelajar from "@/pages/VidioBelajar.vue";
 import DetailVideoBelajar from "@/pages/DetailVideoBelajar.vue";
 import MiniBootcamp from "@/pages/MiniBootcamp.vue";
+import PageNotFound from "@/pages/PageNotFound.vue";
 
 export default [
   {
@@ -34,5 +35,9 @@ export default [
   {
     path: "/video-belajar/:id",
     component: DetailVideoBelajar,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    component: PageNotFound,
   },
 ];
